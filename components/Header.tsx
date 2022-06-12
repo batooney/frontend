@@ -15,16 +15,19 @@ import {
   SearchIcon,
 } from "@heroicons/react/solid";
 import { signIn, signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 
 function Header() {
   const { data: session } = useSession();
   return (
     <div className="sticky top-0 z-50 flex bg-white px-4 py-2 shadow-sm">
-      <div className="mx-7 flex items-center">
-        <HomeIcon className="h-5 w-5" />
-        <p className="ml-2 hidden flex-1 lg:inline">Home</p>
-        <ChevronDownIcon className="h-5 w-5" />
-      </div>
+      <Link href="/">
+        <div className="mx-7 flex items-center">
+          <HomeIcon className="h-5 w-5" />
+          <p className="ml-2 hidden flex-1 lg:inline">Home</p>
+          <ChevronDownIcon className="h-5 w-5" />
+        </div>
+      </Link>
       <form className="flex flex-1 items-center space-x-2 border-gray-200 rounded-sm bg-gray-100 px-3 py-1">
         <SearchIcon className="h-6 w-6 text-gray-400" />
         <input
