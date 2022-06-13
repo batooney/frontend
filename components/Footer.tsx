@@ -3,7 +3,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="flex justify-center items-center bg-white space-x-2 px-4 py-2 shadow-sm h-10">
+    <div className="flex sticky bottom-0 z-50 justify-center items-center bg-white space-x-2 px-4 py-2 shadow-sm h-10">
       <Link href="/about">
         <a>About</a>
       </Link>
