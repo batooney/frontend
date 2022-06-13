@@ -14,22 +14,20 @@ import {
   HomeIcon,
   SearchIcon,
 } from "@heroicons/react/solid";
-import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
 function Header() {
-  const { data: session } = useSession();
   return (
-    <div className="sticky top-0 z-50 flex bg-white px-4 py-2 shadow-sm">
+    <div className="flex sticky top-0 z-50 py-2 px-4 bg-white shadow-sm">
       <Link href="/">
-        <div className="mx-7 flex items-center">
-          <HomeIcon className="h-5 w-5" />
-          <p className="ml-2 hidden flex-1 lg:inline">Home</p>
-          <ChevronDownIcon className="h-5 w-5" />
+        <div className="flex items-center mx-7">
+          <HomeIcon className="w-5 h-5" />
+          <p className="hidden flex-1 ml-2 lg:inline">Home</p>
+          <ChevronDownIcon className="w-5 h-5" />
         </div>
       </Link>
-      <form className="flex flex-1 items-center space-x-2 border-gray-200 rounded-sm bg-gray-100 px-3 py-1">
-        <SearchIcon className="h-6 w-6 text-gray-400" />
+      <form className="flex flex-1 items-center py-1 px-3 space-x-2 bg-gray-100 rounded-sm border-gray-200">
+        <SearchIcon className="w-6 h-6 text-gray-400" />
         <input
           className="flex-1 bg-transparent outline-none"
           type="text"
@@ -37,40 +35,26 @@ function Header() {
         />
         <button type="submit" hidden />
       </form>
-      <div className="text-gray-500 space-x-2 items-center mx-5 hidden lg:inline-flex">
+      <div className="hidden items-center mx-5 space-x-2 text-gray-500 lg:inline-flex">
         <SparklesIcon className="icon" />
         <GlobeIcon className="icon" />
         <VideoCameraIcon className="icon" />
 
-        <hr className="h-10 border border-gray-100 " />
+        <hr className="h-10 border border-gray-100" />
         <ChatIcon className="icon" />
         <BellIcon className="icon" />
         <PlusIcon className="icon" />
         <SpeakerphoneIcon className="icon" />
       </div>
-      <div className="ml-5 flex items-center lg:hidden">
+      <div className="flex items-center ml-5 lg:hidden">
         <MenuIcon className="icon" />
       </div>
 
-      {session ? (
-        <div
-          onClick={() => signIn()}
-          className="hidden cursor-pointer items-center space-x-2 border-gray-100 p-2 lg:flex"
-        >
-          <div className="relative h-5 w-5 flex-shrink-0"></div>
+      <div className="hidden items-center p-2 space-x-2 border-gray-100 cursor-pointer lg:flex">
+        <div className="relative flex-shrink-0 w-5 h-5"></div>
 
-          <p className="text-gray-400">Sign in</p>
-        </div>
-      ) : (
-        <div
-          onClick={() => signOut()}
-          className="hidden cursor-pointer items-center space-x-2 border-gray-100 p-2 lg:flex"
-        >
-          <div className="relative h-5 w-5 flex-shrink-0"></div>
-
-          <p className="text-gray-400">Sign out</p>
-        </div>
-      )}
+        <p className="text-gray-400">Sign in</p>
+      </div>
     </div>
   );
 }

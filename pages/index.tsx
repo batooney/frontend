@@ -2,9 +2,9 @@ import type { NextPage } from "next";
 
 const Home: NextPage = () => {
   return (
-    <div className="h-screen bg-gray-200 px-4 py-4">
-      <div className="flex justify-center bg-white px-4 py-4">
-        <h2>Home page</h2>
+    <div className="py-4 px-4 h-screen bg-gray-200">
+      <div className="flex justify-center py-4 px-4 bg-white">
+        <h2 className="text-xl">Home</h2>
       </div>
     </div>
   );

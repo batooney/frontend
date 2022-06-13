@@ -2,8 +2,11 @@ import type { NextPage } from "next";
 
 const About: NextPage = () => {
   return (
-    <div className="h-screen bg-gray-200">
-      <p>About</p>
+    <div className="flex flex-col py-4 px-4 space-y-4 bg-gray-200">
+      <div className="flex justify-center py-4 px-4 bg-white">
+        <p className="text-xl">About us</p>
+      </div>
+      <div className="flex-initial justify-center py-4 px-4 h-screen bg-white"></div>
     </div>
   );
 };
